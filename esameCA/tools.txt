@@ -1,0 +1,14 @@
+roots(p) -> radici
+
+num=[1 1];
+den=[1 2 2];
+sys=tf(num, den);
+
+p=pole(sys)
+
+inv(x) -> inversa
+.* -> element-wise multiplication
+commento a più linee -> type %{ before the first line and %} after the last line you want to comment
+
+sys=zpk(1,[2 3],4)
+to get bode form -> sys.DisplayFormat='frequency'

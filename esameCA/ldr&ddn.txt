@@ -1,0 +1,37 @@
+s = tf('s');
+
+k1 = 1;
+
+L1 = k1/(((s+1)^2)*(s+10));
+figure(1)
+nyquist(L1);
+
+%Funzione di sensitività complementare 
+F1 = feedback(L1,1);
+figure(2)
+step(F1);
+
+%Luogo delle radici
+figure(3)
+rlocus(L1);
+
+'''''''''
+script per vedere la chiusura all'infinito del DDN 
+%k/s(s+10)
+
+theta = linspace(-0.5*pi,0.5*pi);
+amp = 0.1;
+tfnum = k3;
+intinf = amp*exp(1i.*theta);
+tfden = intinf.*(amp*exp(1i.*theta)+10);
+tfreal = real(tfnum./tfden);
+tfimag = imag(tfnum./tfden);
+figure(7)
+
+plot(tfreal,tfimag,'r--');
+axis([-2 2 -2 2]); 
+hold on;
+
+nyquist(L3,{0.1,100});
+axis('equal');
+hold off

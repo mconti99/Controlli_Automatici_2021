@@ -1,0 +1,23 @@
+clc;
+close all;
+clear all;
+
+%Variabile complessa
+s = tf('s');
+G=
+
+
+L=C*G;
+F=L/(1+L);
+F=zpk(minreal(F));
+margin(L)
+figure(2)
+step(F);
+
+
+''''
+sisotool(G)
+''''RETE ANTICIPATRICE
+a=(1-sind(50))/(1+sind(50));
+T=1/(sqrt(a)*15.4);
+

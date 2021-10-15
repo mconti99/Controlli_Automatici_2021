@@ -1,0 +1,47 @@
+[Gm, Pm, Wcg, Wcp]=margin(sys);
+Tc=2*pi/Wcg;
+kp=Gm/2; %tuning P
+L=kp*G;
+F=feedback(L, 1);
+figure(2);
+step(F);
+
+kp=0.45*Gm;
+Ti=0.8*Tc;
+contr=tf([kp*Ti kp], [Ti 0]); %controllo PI
+L=contr*G;
+F=feedback(L,1);
+figure(3);
+step(F);
+
+s=tf('s');
+kp=0.6*Gm;
+Ti=0.5*Tc;
+Td=0.125*Tc;
+contr=((kp*Ti*s+kp+kp*Ti*Td*s^2)/(Ti*s));
+L=contr*sys;
+F=feedback(L,1);
+figure(4);
+step(F);
+
+
+'''Z-N A CICLO APERTO
+figure(1);
+step(G); %ho un andamento monotono crescente, posso applicare z-n a ciclo aperto
+mu=8; %valore a cui tende la step(sys)
+tau=0.3; %quando il grafico supera 0.1
+T=3.1;
+
+%implemento il PI
+s=tf('s');
+kp=1.2*(T/(mu*tau));
+Ti=2*tau;
+Td=tau/2;
+contr=((kp*Ti*s+kp+kp*Ti*Td*s^2)/(Ti*s));
+L=contr*G;
+F=feedback(L,1);
+figure(2);
+step(F);
+
+%reale: C = kp(1+(1/(Ti*s))+((Td*s)/(1+((Td*s)/N)))
+%reale: C = Kp + Ki/s + (Kd*s)/(1+(Kd/(Kp*N))*s);

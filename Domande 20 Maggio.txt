@@ -1,0 +1,18 @@
+
+
+
+1. Osservatori di stato, a cosa servono e come sono fatti ed esercizio su progettazione di un osservatore con tempo di assestamento minore di 0.5s
+2. Controllori Pid e tecniche di tuning
+3. Reiezione di disturbi sinusoidali e rumori di tipo sinusoidali
+4. Cosa succede se il disturbo agisce in uscita dal controllore e non dall'uscita dell'impianto?
+
+Se ho G(s)=10/(s+10)(s+2) e D(s)= Do/s come faccio a reiettare il disturbo avendo la D(s) additiva in uscita al controllore? Attraverso il principio del modello interno
+
+5. A cosa servono margine di ampiezza e fase?
+6. G(s)=1/((s-1)*(s+1)) progettare controllo proporzionale tale per cui il sistema a cc sia asintoticamente stabile.
+7. Problema di controllo in retroazione di stato nel dominio del tempo
+8. Cos'è la controllabilità?
+9. Principio di separazione
+ Canale C esercizio su Matlab del controllore di osservabilits
+ha chiesto cose strane per me che ho studiato dalle cose di ambrosino mi ha dato una g(s)
+instabile e mi ha chiesto di renderla asintotica stabile con guadagno K ...ma alla fine praticamente nè con nyquist nè con ziegler si poteva fa e non ho capito
